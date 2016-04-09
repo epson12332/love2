@@ -91,7 +91,7 @@
 
 <div id="apDiv7"><img src="../圖/網頁用logo.png" width="170" height="168" /></div>
 <div id="apDiv8"><img src="../圖/網頁標題.png" width="480" height="160" /></div>
-<div id="apDiv1"><img src="../圖/網頁icon回首頁.png" width="120" height="54" /></div>
+<div id="apDiv1"><a href="../s_manal.php"><img src="../圖/網頁icon回首頁.png" width="120" height="54" /></a></div>
 
 <div id="apDiv9">
 <div>失敗，請重新輸入
