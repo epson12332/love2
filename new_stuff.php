@@ -106,6 +106,16 @@ $query_stuff = "SELECT * FROM rewards";
 $stuff = mysql_query($query_stuff, $conn) or die(mysql_error());
 $row_stuff = mysql_fetch_assoc($stuff);
 $totalRows_stuff = mysql_num_rows($stuff);
+
+$colname_mem = "-1";
+if (isset($_SESSION['MM_Username'])) {
+  $colname_mem = $_SESSION['MM_Username'];
+}
+mysql_select_db($database_conn, $conn);
+$query_mem = sprintf("SELECT * FROM member WHERE D_ID = %s", GetSQLValueString($colname_mem, "text"));
+$mem = mysql_query($query_mem, $conn) or die(mysql_error());
+$row_mem = mysql_fetch_assoc($mem);
+$totalRows_mem = mysql_num_rows($mem);
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -245,4 +255,6 @@ $totalRows_stuff = mysql_num_rows($stuff);
 </html>
 <?php
 mysql_free_result($stuff);
+
+mysql_free_result($mem);
 ?>
