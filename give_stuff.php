@@ -77,7 +77,7 @@ function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDe
 }
 
 mysql_select_db($database_conn, $conn);
-$query_stuff = "SELECT * FROM stuff WHERE DS_SITUATION = 'N'";
+$query_stuff = "SELECT `DS_ID`,`DS_NAME`,`DS_AMOUNT`,`DS_CLASS`,`member`.`D_NAME` FROM stuff,member WHERE DS_SITUATION = 'N' and stuff.D_ID = member.D_ID";
 $stuff = mysql_query($query_stuff, $conn) or die(mysql_error());
 $row_stuff = mysql_fetch_assoc($stuff);
 $totalRows_stuff = mysql_num_rows($stuff);
@@ -180,20 +180,22 @@ $totalRows_stuff = mysql_num_rows($stuff);
   <div>
 
 <p>我要提供物資</p>
-<table width="438" border="1">
+<table width="500" border="1">
   <tr>
     <td width="58">編號</td>
     <td width="140">物品</td>
     <td width="99">數量</td>
     <td width="113">類別</td>
-    </tr>
+    <td width="56">誰需要</td>
+  </tr>
   <?php do { ?>
     <tr>
       <td><?php echo $row_stuff['DS_ID']; ?></td>
       <td><?php echo $row_stuff['DS_NAME']; ?></td>
       <td><?php echo $row_stuff['DS_AMOUNT']; ?></td>
       <td><?php echo $row_stuff['DS_CLASS']; ?></td>
-      </tr>
+      <td><?php echo $row_stuff['D_NAME']; ?></td>
+    </tr>
     <?php } while ($row_stuff = mysql_fetch_assoc($stuff)); ?>
 </table>
 
