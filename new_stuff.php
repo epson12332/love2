@@ -102,22 +102,6 @@ if ((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "form1")) {
 }
 
 mysql_select_db($database_conn, $conn);
-$query_Recordset1 = "SELECT * FROM stuff";
-$Recordset1 = mysql_query($query_Recordset1, $conn) or die(mysql_error());
-$row_Recordset1 = mysql_fetch_assoc($Recordset1);
-$totalRows_Recordset1 = mysql_num_rows($Recordset1);
-
-$colname_mem = "-1";
-if (isset($_SESSION['MM_Username'])) {
-  $colname_mem = $_SESSION['MM_Username'];
-}
-mysql_select_db($database_conn, $conn);
-$query_mem = sprintf("SELECT * FROM member WHERE D_ID = %s", GetSQLValueString($colname_mem, "text"));
-$mem = mysql_query($query_mem, $conn) or die(mysql_error());
-$row_mem = mysql_fetch_assoc($mem);
-$totalRows_mem = mysql_num_rows($mem);
-
-mysql_select_db($database_conn, $conn);
 $query_stuff = "SELECT * FROM rewards";
 $stuff = mysql_query($query_stuff, $conn) or die(mysql_error());
 $row_stuff = mysql_fetch_assoc($stuff);
@@ -260,9 +244,5 @@ $totalRows_stuff = mysql_num_rows($stuff);
 </body>
 </html>
 <?php
-mysql_free_result($Recordset1);
-
-mysql_free_result($mem);
-
 mysql_free_result($stuff);
 ?>

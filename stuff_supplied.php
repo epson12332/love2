@@ -1,39 +1,10 @@
 <?php require_once('Connections/conn.php'); ?>
 <?php
-//initialize the session
 if (!isset($_SESSION)) {
   session_start();
 }
-
-// ** Logout the current user. **
-$logoutAction = $_SERVER['PHP_SELF']."?doLogout=true";
-if ((isset($_SERVER['QUERY_STRING'])) && ($_SERVER['QUERY_STRING'] != "")){
-  $logoutAction .="&". htmlentities($_SERVER['QUERY_STRING']);
-}
-
-if ((isset($_GET['doLogout'])) &&($_GET['doLogout']=="true")){
-  //to fully log out a visitor we need to clear the session varialbles
-  $_SESSION['MM_Username'] = NULL;
-  $_SESSION['MM_UserGroup'] = NULL;
-  $_SESSION['PrevUrl'] = NULL;
-  $_SESSION['char']= $row_Recordset1['D_CHAR'];;
-  unset($_SESSION['MM_Username']);
-  unset($_SESSION['MM_UserGroup']);
-  unset($_SESSION['PrevUrl']);
-	
-  $logoutGoTo = "index.php";
-  if ($logoutGoTo) {
-    header("Location: $logoutGoTo");
-    exit;
-  }
-}
-?>
-<?php
-if (!isset($_SESSION)) {
-  session_start();
-}
-$MM_authorizedUsers = "小主人";
-$MM_donotCheckaccess = "false";
+$MM_authorizedUsers = "";
+$MM_donotCheckaccess = "true";
 
 // *** Restrict Access To Page: Grant or deny access to this page
 function isAuthorized($strUsers, $strGroups, $UserName, $UserGroup) { 
@@ -54,7 +25,7 @@ function isAuthorized($strUsers, $strGroups, $UserName, $UserGroup) {
     if (in_array($UserGroup, $arrGroups)) { 
       $isValid = true; 
     } 
-    if (($strUsers == "") && false) { 
+    if (($strUsers == "") && true) { 
       $isValid = true; 
     } 
   } 
@@ -105,33 +76,40 @@ function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDe
 }
 }
 
-$colname_Recordset1 = "-1";
-if (isset($_SESSION['MM_Username'])) {
-  $colname_Recordset1 = $_SESSION['MM_Username'];
+$maxRows_stuff = 10;
+$pageNum_stuff = 0;
+if (isset($_GET['pageNum_stuff'])) {
+  $pageNum_stuff = $_GET['pageNum_stuff'];
 }
+$startRow_stuff = $pageNum_stuff * $maxRows_stuff;
+
 mysql_select_db($database_conn, $conn);
-$query_Recordset1 = sprintf("SELECT * FROM member WHERE D_ID = %s", GetSQLValueString($colname_Recordset1, "text"));
-$Recordset1 = mysql_query($query_Recordset1, $conn) or die(mysql_error());
-$row_Recordset1 = mysql_fetch_assoc($Recordset1);
-$totalRows_Recordset1 = mysql_num_rows($Recordset1);
-?>
-<?php  if ($row_Recordset1['D_CHAR']='S'){
-	$cn='小天使';}
-	else if ($row_Recordset1['D_CHAR']='D'){$cn='小主人';}
+$query_stuff = "SELECT * FROM stuff WHERE D_CHA = '小天使'";
+$query_limit_stuff = sprintf("%s LIMIT %d, %d", $query_stuff, $startRow_stuff, $maxRows_stuff);
+$stuff = mysql_query($query_limit_stuff, $conn) or die(mysql_error());
+$row_stuff = mysql_fetch_assoc($stuff);
+
+if (isset($_GET['totalRows_stuff'])) {
+  $totalRows_stuff = $_GET['totalRows_stuff'];
+} else {
+  $all_stuff = mysql_query($query_stuff);
+  $totalRows_stuff = mysql_num_rows($all_stuff);
+}
+$totalPages_stuff = ceil($totalRows_stuff/$maxRows_stuff)-1;
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>操作目錄</title>
+<title>有人提供的物資資訊</title>
 <style type="text/css">
 #apDiv1 {
 	position: absolute;
 	width: 120px;
 	height: 53px;
 	z-index: 1;
-	left: 341px;
-	top: 215px;
+	left: 643px;
+	top: 221px;
 }
 #apDiv2 {
 	position: absolute;
@@ -146,16 +124,16 @@ $totalRows_Recordset1 = mysql_num_rows($Recordset1);
 	width: 119px;
 	height: 54px;
 	z-index: 3;
-	left: 490px;
-	top: 216px;
+	left: 654px;
+	top: 214px;
 }
 #apDiv4 {
 	position: absolute;
 	width: 118px;
 	height: 52px;
 	z-index: 4;
-	left: 651px;
-	top: 217px;
+	left: 791px;
+	top: 212px;
 }
 #apDiv5 {
 	position: absolute;
@@ -170,8 +148,8 @@ $totalRows_Recordset1 = mysql_num_rows($Recordset1);
 	width: 121px;
 	height: 53px;
 	z-index: 6;
-	left: 806px;
-	top: 217px;
+	left: 929px;
+	top: 213px;
 }
 #apDiv7 {
 	position: absolute;
@@ -192,18 +170,26 @@ $totalRows_Recordset1 = mysql_num_rows($Recordset1);
 #apDiv9 {
 	position: absolute;
 	width: 437px;
-	height: 157px;
+	height: 90px;
 	z-index: 9;
-	left: 398px;
-	top: 387px;
+	left: 165px;
+	top: 406px;
 }
 #apDiv10 {
 	position: absolute;
 	width: 63px;
 	height: 75px;
 	z-index: 10;
-	left: 41px;
-	top: -97px;
+	left: 396px;
+	top: -102px;
+}
+#apDiv11 {
+	position: absolute;
+	width: 757px;
+	height: 115px;
+	z-index: 10;
+	left: 404px;
+	top: 523px;
 }
 </style>
 </head>
@@ -213,22 +199,33 @@ $totalRows_Recordset1 = mysql_num_rows($Recordset1);
 <div id="apDiv7"><img src="圖/網頁用logo.png" width="170" height="168" /></div>
 <div id="apDiv8"><img src="圖/網頁標題.png" width="480" height="160" /></div>
 <div id="apDiv1"><a href="s_manal.php"><img src="圖/網頁icon回首頁.png" width="120" height="54" /></a></div>
-<div id="apDiv3"><a href="memberdata.php"><img src="圖/網頁icon綠個人資料.png" width="120" height="54" /></a></div>
-<div id="apDiv4"><img src="圖/網頁icon藍物資資訊.png" width="120" height="54" /></div>
-<div id="apDiv6"><img src="圖/網頁icon(about us).png" width="120" height="54" /></div>
+
 <div id="apDiv9">
-<div><p>hi,小主人
-<?php   
-echo $row_Recordset1['D_NAME']; ?></p>
-  <p><a href="new_stuff.php">我需要物資</a></p>
-  <p><a href="stuff_supplied.php">小天使提供的物資</a></p>
-<p><a href="stuffdata.php">我所需物資列表</a></p>
-<p><a href="<?php echo $logoutAction ?>">登出</a></p>
+<div>
+
+<table width="924" border="1">
+  <tr>
+    <td width="163">編號</td>
+    <td width="186">名稱</td>
+    <td width="166">數量</td>
+    <td width="198">類別</td>
+    <td>完成</td>
+  </tr>
+  <?php do { ?>
+    <tr>
+      <td><?php echo $row_stuff['DS_ID']; ?></td>
+      <td><?php echo $row_stuff['DS_NAME']; ?></td>
+      <td><?php echo $row_stuff['DS_AMOUNT']; ?></td>
+      <td><?php echo $row_stuff['DS_CLASS']; ?></td>
+      <td><?php echo $row_stuff['DS_SITUATION']; ?></td>
+    </tr>
+    <?php } while ($row_stuff = mysql_fetch_assoc($stuff)); ?>
+</table>
 </div>
-<div id="apDiv10"><img src="圖/歡迎光臨.png" width="350" height="69" /></div>
+<div id="apDiv10"><img src="圖/物資資訊.png" width="350" height="69" /></div>
 </div>
 </body>
 </html>
 <?php
-mysql_free_result($Recordset1);
+mysql_free_result($stuff);
 ?>

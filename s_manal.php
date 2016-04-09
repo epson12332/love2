@@ -223,7 +223,7 @@ $totalRows_Recordset2 = mysql_num_rows($Recordset2);
 <div id="apDiv7"><img src="圖/網頁用logo.png" width="170" height="168" /></div>
 <div id="apDiv8"><img src="圖/網頁標題.png" width="480" height="160" /></div>
 <div id="apDiv1"><a href="s_manal.php"><img src="圖/網頁icon回首頁.png" width="120" height="54" /></a></div>
-<div id="apDiv3"><img src="圖/網頁icon綠個人資料.png" width="120" height="54" /></div>
+<div id="apDiv3"><a href="memberdata.php"><img src="圖/網頁icon綠個人資料.png" width="120" height="54" /></a></div>
 <div id="apDiv6"><img src="圖/網頁icon(about us).png" width="120" height="54" /></div>
 <div id="apDiv9">
 <div>
@@ -233,7 +233,8 @@ $totalRows_Recordset2 = mysql_num_rows($Recordset2);
 echo $row_Recordset1['D_NAME']; ?>
 </p>
 <p>愛心里程是<?php echo $row_Recordset2['sum(R_COUNT)']; ?></p>
-<p><a href="give_stuff.php">我要提供物資！！</a></p>
+<p><a href="give_stuff.php">我要提供需要的物資</a></p>
+<p><a href="new_stuff.php">我要主動提供物資</a></p>
 <p><a href="s_stuffdata.php">我提供的物資</a></p>
 <p><a href="<?php echo $logoutAction ?>">登出</a></p>
 </div>
