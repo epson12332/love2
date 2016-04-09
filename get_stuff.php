@@ -259,7 +259,7 @@ $totalRows_member = mysql_num_rows($member);
     <label for="ds_id">編號：</label>
     <?php echo $row_stuff['DS_ID']; ?>
     <input name="dsid" type="hidden" id="hiddenField" value="<?php echo $row_stuff['DS_ID']; ?>" />
-    <input name="hiddenField3" type="hidden" id="hiddenField3" value="<?php echo $_SESSION['MM_Username']; ?>" />
+    <input name="hiddenField3" type="hidden" id="hiddenField3" value="<?php echo $row_member['D_ID']; ?>" />
   </p>
   <p>
     <label for="name">名稱：</label>

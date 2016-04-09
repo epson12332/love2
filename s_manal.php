@@ -223,7 +223,7 @@ $totalRows_Recordset2 = mysql_num_rows($Recordset2);
 <div id="apDiv7"><img src="圖/網頁用logo.png" width="170" height="168" /></div>
 <div id="apDiv8"><img src="圖/網頁標題.png" width="480" height="160" /></div>
 <div id="apDiv1"><a href="s_manal.php"><img src="圖/網頁icon回首頁.png" width="120" height="54" /></a></div>
-<div id="apDiv3"><a href="memberdata.php"><img src="圖/網頁icon綠個人資料.png" width="120" height="54" /></a></div>
+<div id="apDiv3"><a href="mdata.php"><img src="圖/網頁icon綠個人資料.png" width="120" height="54" /></a></div>
 <div id="apDiv6"><img src="圖/網頁icon(about us).png" width="120" height="54" /></div>
 <div id="apDiv9">
 <div>
