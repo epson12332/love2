@@ -273,7 +273,7 @@ if (isset($_POST['ID'])) {
 
 <div id="apDiv7"><img src="圖/網頁用logo.png" width="170" height="168" /></div>
 <div id="apDiv8"><img src="圖/網頁標題.png" width="480" height="160" /></div><div id="apDiv2"><a href="signup/chose.php"><img src="圖/網頁icon黃（申請會員）.png" width="120" height="54" /></a></div>
-<div id="apDiv6"><img src="圖/網頁icon(about us).png" width="120" height="54" /></div>
+<div id="apDiv6"><a href="aboutus.php"><img src="圖/網頁icon(about us).png" width="120" height="54" /></a></div>
 <div id="apDiv9" align="">
 <div >
   <div align="center">
