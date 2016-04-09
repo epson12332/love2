@@ -228,6 +228,10 @@ $totalRows_Recordset1 = mysql_num_rows($Recordset1);
     
   <option value="日用品">日用品</option>
   <option value="食物">食物</option>
+  <option value="營養品">營養品</option>
+  <option value="文教">文教</option>
+  <option value="醫療">醫療</option>
+  <option value="其他">其他</option>
     </select>
     
   </p>

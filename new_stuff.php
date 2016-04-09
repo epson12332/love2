@@ -127,7 +127,7 @@ $totalRows_stuff = mysql_num_rows($stuff);
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>新增物資</title>
+<title>新增需求物資</title>
 <style type="text/css">
 #apDiv1 {
 	position: absolute;
@@ -231,6 +231,10 @@ $totalRows_stuff = mysql_num_rows($stuff);
     
   <option value="日用品">日用品</option>
   <option value="食物">食物</option>
+  <option value="營養品">營養品</option>
+  <option value="文教">文教</option>
+  <option value="醫療">醫療</option>
+  <option value="其他">其他</option>
     </select>
     
   </p>

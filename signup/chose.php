@@ -40,17 +40,16 @@ $totalRows_Recordset1 = mysql_num_rows($Recordset1);
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>sign up</title>
-</head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>選擇角色</title>
 <style type="text/css">
 #apDiv1 {
 	position: absolute;
 	width: 120px;
 	height: 53px;
 	z-index: 1;
-	left: 560px;
-	top: 226px;
+	left: 246px;
+	top: 215px;
 }
 #apDiv2 {
 	position: absolute;
@@ -111,27 +110,48 @@ $totalRows_Recordset1 = mysql_num_rows($Recordset1);
 #apDiv9 {
 	position: absolute;
 	width: 437px;
-	height: 157px;
+	height: 90px;
 	z-index: 9;
-	left: 390px;
-	top: 403px;
+	left: 465px;
+	top: 439px;
 }
 #apDiv10 {
 	position: absolute;
 	width: 63px;
 	height: 75px;
 	z-index: 10;
-	left: 64px;
-	top: -94px;
+	left: 73px;
+	top: -137px;
+}
+#apDiv11 {
+	position: absolute;
+	width: 757px;
+	height: 115px;
+	z-index: 10;
+	left: 404px;
+	top: 523px;
 }
 </style>
+</head>
 
 <body bgcolor="#ede4c7">
-<h1>歡迎註冊</h1>
+
+<div id="apDiv7"><img src="圖/網頁用logo.png" width="170" height="168" /></div>
+<div id="apDiv8"><img src="圖/網頁標題.png" width="480" height="160" /></div>
+<div id="apDiv1"><img src="圖/網頁icon回首頁.png" width="120" height="54" /></div>
+<div id="apDiv2"><img src="圖/網頁icon黃（申請會員）.png" width="120" height="54" /></div>
+<div id="apDiv3"><img src="圖/網頁icon綠個人資料.png" width="120" height="54" /></div>
+<div id="apDiv4"><img src="圖/網頁icon藍物資資訊.png" width="120" height="54" /></div>
+<div id="apDiv5"><img src="圖/網頁icon橙登入.png" width="120" height="54" /></div>
+<div id="apDiv6"><img src="圖/網頁icon(about us).png" width="120" height="54" /></div>
+<div id="apDiv9">
 <div>
+
 <h3>請選擇</h3>
 <p><a href="s_signup.php">小天使(供給者)</a></p>
 <p><a href="d_signup .php">小主人(需求者)</a></p>
+</div>
+<div id="apDiv10"><img src="file:///C|/AppServ/www/旋轉愛心/圖/歡迎註冊.png" width="350" height="69" /></div>
 </div>
 </body>
 </html>
