@@ -48,8 +48,8 @@ $totalRows_Recordset1 = mysql_num_rows($Recordset1);
 	width: 120px;
 	height: 53px;
 	z-index: 1;
-	left: 246px;
-	top: 215px;
+	left: 591px;
+	top: 218px;
 }
 #apDiv2 {
 	position: absolute;
@@ -136,14 +136,9 @@ $totalRows_Recordset1 = mysql_num_rows($Recordset1);
 
 <body bgcolor="#ede4c7">
 
-<div id="apDiv7"><img src="圖/網頁用logo.png" width="170" height="168" /></div>
-<div id="apDiv8"><img src="圖/網頁標題.png" width="480" height="160" /></div>
-<div id="apDiv1"><img src="圖/網頁icon回首頁.png" width="120" height="54" /></div>
-<div id="apDiv2"><img src="圖/網頁icon黃（申請會員）.png" width="120" height="54" /></div>
-<div id="apDiv3"><img src="圖/網頁icon綠個人資料.png" width="120" height="54" /></div>
-<div id="apDiv4"><img src="圖/網頁icon藍物資資訊.png" width="120" height="54" /></div>
-<div id="apDiv5"><img src="圖/網頁icon橙登入.png" width="120" height="54" /></div>
-<div id="apDiv6"><img src="圖/網頁icon(about us).png" width="120" height="54" /></div>
+<div id="apDiv7"><img src="../圖/網頁用logo.png" width="170" height="168" /></div>
+<div id="apDiv8"><img src="../圖/網頁標題.png" width="480" height="160" /></div>
+<div id="apDiv1"><img src="../圖/網頁icon回首頁.png" width="120" height="54" /></div>
 <div id="apDiv9">
 <div>
 
@@ -151,7 +146,7 @@ $totalRows_Recordset1 = mysql_num_rows($Recordset1);
 <p><a href="s_signup.php">小天使(供給者)</a></p>
 <p><a href="d_signup .php">小主人(需求者)</a></p>
 </div>
-<div id="apDiv10"><img src="file:///C|/AppServ/www/旋轉愛心/圖/歡迎註冊.png" width="350" height="69" /></div>
+<div id="apDiv10"><img src="../圖/歡迎註冊.png" width="350" height="69" /></div>
 </div>
 </body>
 </html>
