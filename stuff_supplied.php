@@ -76,26 +76,11 @@ function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDe
 }
 }
 
-$maxRows_stuff = 10;
-$pageNum_stuff = 0;
-if (isset($_GET['pageNum_stuff'])) {
-  $pageNum_stuff = $_GET['pageNum_stuff'];
-}
-$startRow_stuff = $pageNum_stuff * $maxRows_stuff;
-
 mysql_select_db($database_conn, $conn);
-$query_stuff = "SELECT * FROM stuff WHERE D_CHA = '小天使'";
-$query_limit_stuff = sprintf("%s LIMIT %d, %d", $query_stuff, $startRow_stuff, $maxRows_stuff);
-$stuff = mysql_query($query_limit_stuff, $conn) or die(mysql_error());
+$query_stuff = "SELECT * FROM stuff WHERE D_CHA = '小天使' and DS_SITUATION = 'N'";
+$stuff = mysql_query($query_stuff, $conn) or die(mysql_error());
 $row_stuff = mysql_fetch_assoc($stuff);
-
-if (isset($_GET['totalRows_stuff'])) {
-  $totalRows_stuff = $_GET['totalRows_stuff'];
-} else {
-  $all_stuff = mysql_query($query_stuff);
-  $totalRows_stuff = mysql_num_rows($all_stuff);
-}
-$totalPages_stuff = ceil($totalRows_stuff/$maxRows_stuff)-1;
+$totalRows_stuff = mysql_num_rows($stuff);
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -223,6 +208,17 @@ $totalPages_stuff = ceil($totalRows_stuff/$maxRows_stuff)-1;
 </table>
 </div>
 <div id="apDiv10"><img src="圖/物資資訊.png" width="350" height="69" /></div>
+<p>請輸入需要的物資編號</p>
+<form id="form1" name="form1" method="post" action="get_stuff.php">
+  <p>
+    <label for="id">編號：</label>
+    <input type="text" name="id" id="id" />
+  </p>
+  <p>
+    <input type="submit" name="submit" id="submit" value="送出" />
+  </p>
+</form>
+<p>&nbsp;</p>
 </div>
 </body>
 </html>
