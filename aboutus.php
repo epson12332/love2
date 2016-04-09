@@ -91,7 +91,7 @@
 
 <div id="apDiv7"><img src="圖/網頁用logo.png" width="170" height="168" /></div>
 <div id="apDiv8"><img src="圖/網頁標題.png" width="480" height="160" /></div>
-<div id="apDiv1"><img src="圖/網頁icon回首頁.png" width="120" height="54" /></div>
+<div id="apDiv1"><a href="s_manal.php"><img src="圖/網頁icon回首頁.png" width="120" height="54" /></a></div>
 <div id="apDiv9">
   <div>
   <p>本平台由一 群熱愛公益的大學生所設計，有鑑於全球性的經濟不景氣，一般家庭經濟狀況普遍不佳，相對弱勢的邊緣性家庭景況更顯雪上加霜，政府所能提供的現金補助，面臨僧多粥少的窘境，無法幫助所有的家庭，公私部門資源無法達到最有效的運用。  </p>
