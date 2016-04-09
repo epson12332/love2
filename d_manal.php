@@ -222,6 +222,7 @@ echo $row_Recordset1['D_NAME']; ?></p>
   <p><a href="new_stuff.php">我需要物資</a>  </p>
   <p><a href="stuff_supplied.php">小天使提供的物資</a></p>
 <p><a href="stuffdata.php">我所需物資列表</a></p>
+<p><a href="memberdata.php">修改我的資料</a></p>
 <p><a href="<?php echo $logoutAction ?>">登出</a></p>
 </div>
 <div id="apDiv10"><img src="圖/歡迎光臨.png" width="350" height="69" /></div>
