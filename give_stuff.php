@@ -76,40 +76,25 @@ function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDe
 }
 }
 
-$maxRows_stuff = 10;
-$pageNum_stuff = 0;
-if (isset($_GET['pageNum_stuff'])) {
-  $pageNum_stuff = $_GET['pageNum_stuff'];
-}
-$startRow_stuff = $pageNum_stuff * $maxRows_stuff;
-
 mysql_select_db($database_conn, $conn);
 $query_stuff = "SELECT * FROM stuff WHERE DS_SITUATION = 'N'";
-$query_limit_stuff = sprintf("%s LIMIT %d, %d", $query_stuff, $startRow_stuff, $maxRows_stuff);
-$stuff = mysql_query($query_limit_stuff, $conn) or die(mysql_error());
+$stuff = mysql_query($query_stuff, $conn) or die(mysql_error());
 $row_stuff = mysql_fetch_assoc($stuff);
-
-if (isset($_GET['totalRows_stuff'])) {
-  $totalRows_stuff = $_GET['totalRows_stuff'];
-} else {
-  $all_stuff = mysql_query($query_stuff);
-  $totalRows_stuff = mysql_num_rows($all_stuff);
-}
-$totalPages_stuff = ceil($totalRows_stuff/$maxRows_stuff)-1;
+$totalRows_stuff = mysql_num_rows($stuff);
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>無標題文件</title>
+<title>捐贈物資</title>
 <style type="text/css">
 #apDiv1 {
 	position: absolute;
 	width: 120px;
 	height: 53px;
 	z-index: 1;
-	left: 246px;
-	top: 215px;
+	left: 613px;
+	top: 216px;
 }
 #apDiv2 {
 	position: absolute;
@@ -172,16 +157,16 @@ $totalPages_stuff = ceil($totalRows_stuff/$maxRows_stuff)-1;
 	width: 437px;
 	height: 157px;
 	z-index: 9;
-	left: 204px;
-	top: 387px;
+	left: 393px;
+	top: 384px;
 }
 #apDiv10 {
 	position: absolute;
 	width: 63px;
 	height: 75px;
 	z-index: 10;
-	left: 287px;
-	top: -88px;
+	left: 96px;
+	top: -90px;
 }
 </style>
 </head>
@@ -191,13 +176,8 @@ $totalPages_stuff = ceil($totalRows_stuff/$maxRows_stuff)-1;
 <div id="apDiv7"><img src="圖/網頁用logo.png" width="170" height="168" /></div>
 <div id="apDiv8"><img src="圖/網頁標題.png" width="480" height="160" /></div>
 <div id="apDiv1"><a href="s_manal.php"><img src="圖/網頁icon回首頁.png" width="120" height="54" /></a></div>
-<div id="apDiv2"><img src="圖/網頁icon黃（申請會員）.png" width="120" height="54" /></div>
-<div id="apDiv3"><img src="圖/網頁icon綠個人資料.png" width="120" height="54" /></div>
-<div id="apDiv4"><img src="圖/網頁icon藍物資資訊.png" width="120" height="54" /></div>
-<div id="apDiv5"><img src="圖/網頁icon橙登入.png" width="120" height="54" /></div>
-<div id="apDiv6"><img src="圖/網頁icon(about us).png" width="120" height="54" /></div>
 <div id="apDiv9">
-<div>
+  <div>
 
 <p>我要提供物資</p>
 <table width="500" border="1">

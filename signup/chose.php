@@ -43,8 +43,90 @@ $totalRows_Recordset1 = mysql_num_rows($Recordset1);
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>sign up</title>
 </head>
+<style type="text/css">
+#apDiv1 {
+	position: absolute;
+	width: 120px;
+	height: 53px;
+	z-index: 1;
+	left: 560px;
+	top: 226px;
+}
+#apDiv2 {
+	position: absolute;
+	width: 121px;
+	height: 51px;
+	z-index: 2;
+	left: 517px;
+	top: 214px;
+}
+#apDiv3 {
+	position: absolute;
+	width: 119px;
+	height: 54px;
+	z-index: 3;
+	left: 654px;
+	top: 214px;
+}
+#apDiv4 {
+	position: absolute;
+	width: 118px;
+	height: 52px;
+	z-index: 4;
+	left: 791px;
+	top: 212px;
+}
+#apDiv5 {
+	position: absolute;
+	width: 112px;
+	height: 42px;
+	z-index: 5;
+	left: 379px;
+	top: 215px;
+}
+#apDiv6 {
+	position: absolute;
+	width: 121px;
+	height: 53px;
+	z-index: 6;
+	left: 929px;
+	top: 213px;
+}
+#apDiv7 {
+	position: absolute;
+	width: 216px;
+	height: 170px;
+	z-index: 7;
+	left: 294px;
+	top: 28px;
+}
+#apDiv8 {
+	position: absolute;
+	width: 200px;
+	height: 115px;
+	z-index: 8;
+	left: 536px;
+	top: 33px;
+}
+#apDiv9 {
+	position: absolute;
+	width: 437px;
+	height: 157px;
+	z-index: 9;
+	left: 390px;
+	top: 403px;
+}
+#apDiv10 {
+	position: absolute;
+	width: 63px;
+	height: 75px;
+	z-index: 10;
+	left: 64px;
+	top: -94px;
+}
+</style>
 
-<body>
+<body bgcolor="#ede4c7">
 <h1>歡迎註冊</h1>
 <div>
 <h3>請選擇</h3>

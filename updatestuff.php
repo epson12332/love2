@@ -92,7 +92,7 @@ if ((isset($_POST["MM_update"])) && ($_POST["MM_update"] == "form1")) {
   mysql_select_db($database_conn, $conn);
   $Result1 = mysql_query($updateSQL, $conn) or die(mysql_error());
 
-  $updateGoTo = "stuffdata.php";
+  $updateGoTo = "成功.php";
   if (isset($_SERVER['QUERY_STRING'])) {
     $updateGoTo .= (strpos($updateGoTo, '?')) ? "&" : "?";
     $updateGoTo .= $_SERVER['QUERY_STRING'];
@@ -120,15 +120,15 @@ $totalRows_Recordset1 = mysql_num_rows($Recordset1);
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>無標題文件</title>
+<title>更新物資資訊</title>
 <style type="text/css">
 #apDiv1 {
 	position: absolute;
 	width: 120px;
 	height: 53px;
 	z-index: 1;
-	left: 246px;
-	top: 215px;
+	left: 561px;
+	top: 222px;
 }
 #apDiv2 {
 	position: absolute;
@@ -191,16 +191,16 @@ $totalRows_Recordset1 = mysql_num_rows($Recordset1);
 	width: 437px;
 	height: 352px;
 	z-index: 9;
-	left: 504px;
-	top: 387px;
+	left: 403px;
+	top: 382px;
 }
 #apDiv10 {
 	position: absolute;
 	width: 63px;
 	height: 75px;
 	z-index: 10;
-	left: -52px;
-	top: -91px;
+	left: 59px;
+	top: -89px;
 }
 </style>
 </head>
@@ -210,11 +210,7 @@ $totalRows_Recordset1 = mysql_num_rows($Recordset1);
 <div id="apDiv7"><img src="圖/網頁用logo.png" width="170" height="168" /></div>
 <div id="apDiv8"><img src="圖/網頁標題.png" width="480" height="160" /></div>
 <div id="apDiv1"><a href="s_manal.php"><img src="圖/網頁icon回首頁.png" width="120" height="54" /></a></div>
-<div id="apDiv2"><img src="圖/網頁icon黃（申請會員）.png" width="120" height="54" /></div>
-<div id="apDiv3"><img src="圖/網頁icon綠個人資料.png" width="120" height="54" /></div>
-<div id="apDiv4"><img src="圖/網頁icon藍物資資訊.png" width="120" height="54" /></div>
-<div id="apDiv5"><img src="圖/網頁icon橙登入.png" width="120" height="54" /></div>
-<div id="apDiv6"><img src="圖/網頁icon(about us).png" width="120" height="54" /></div>
+
 <div id="apDiv9">
 <div>
 

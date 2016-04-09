@@ -2,7 +2,7 @@
 # FileName="Connection_php_mysql.htm"
 # Type="MYSQL"
 # HTTP="true"
-$hostname_conn = "love.chgtvkwpqf60.ap-northeast-1.rds.amazonaws.com:3306";
+$hostname_conn = "love.chgtvkwpqf60.ap-northeast-1.rds.amazonaws.com";
 $database_conn = "love";
 $username_conn = "epson12332";
 $password_conn = "aabb1234";

@@ -123,7 +123,7 @@ if (isset($_GET['pageNum_Recordset2'])) {
 $startRow_Recordset2 = $pageNum_Recordset2 * $maxRows_Recordset2;
 
 mysql_select_db($database_conn, $conn);
-$query_Recordset2 = "SELECT * FROM stuff WHERE `D_CHA`= '小主人' ORDER BY DS_EXPIRED DESC";
+$query_Recordset2 = "SELECT * FROM stuff WHERE `D_CHA`= '小主人' and `DS_SITUATION` =  'N' ORDER BY DS_EXPIRED DESC";
 $query_limit_Recordset2 = sprintf("%s LIMIT %d, %d", $query_Recordset2, $startRow_Recordset2, $maxRows_Recordset2);
 $Recordset2 = mysql_query($query_limit_Recordset2, $conn) or die(mysql_error());
 $row_Recordset2 = mysql_fetch_assoc($Recordset2);
@@ -184,7 +184,7 @@ if (isset($_POST['ID'])) {
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>無標題文件</title>
+<title>旋轉愛心</title>
 <style type="text/css">
 #apDiv1 {
 	position: absolute;
@@ -199,8 +199,8 @@ if (isset($_POST['ID'])) {
 	width: 121px;
 	height: 51px;
 	z-index: 2;
-	left: 517px;
-	top: 214px;
+	left: 503px;
+	top: 226px;
 }
 #apDiv3 {
 	position: absolute;
@@ -231,8 +231,8 @@ if (isset($_POST['ID'])) {
 	width: 121px;
 	height: 53px;
 	z-index: 6;
-	left: 929px;
-	top: 213px;
+	left: 684px;
+	top: 224px;
 }
 #apDiv7 {
 	position: absolute;
@@ -255,8 +255,8 @@ if (isset($_POST['ID'])) {
 	width: 437px;
 	height: 157px;
 	z-index: 9;
-	left: 145px;
-	top: 382px;
+	left: 123px;
+	top: 372px;
 }
 #apDiv10 {
 	position: absolute;
@@ -272,15 +272,11 @@ if (isset($_POST['ID'])) {
 <body bgcolor="#ede4c7">
 
 <div id="apDiv7"><img src="圖/網頁用logo.png" width="170" height="168" /></div>
-<div id="apDiv8"><img src="圖/網頁標題.png" width="480" height="160" /></div>
-<div id="apDiv1"><a href="s_manal.php"><img src="圖/網頁icon回首頁.png" width="120" height="54" /></a></div><div id="apDiv2"><img src="圖/網頁icon黃（申請會員）.png" width="120" height="54" /></div>
-
-<div id="apDiv4"><img src="圖/網頁icon藍物資資訊.png" width="120" height="54" /></div>
-<div id="apDiv5"><img src="圖/網頁icon橙登入.png" width="120" height="54" /></div>
+<div id="apDiv8"><img src="圖/網頁標題.png" width="480" height="160" /></div><div id="apDiv2"><a href="signup/chose.php"><img src="圖/網頁icon黃（申請會員）.png" width="120" height="54" /></a></div>
 <div id="apDiv6"><img src="圖/網頁icon(about us).png" width="120" height="54" /></div>
-<div id="apDiv9">
-<div>
-  <div>
+<div id="apDiv9" align="">
+<div >
+  <div align="center">
     登入
   <form id="form1" name="form1" method="POST" action="<?php echo $loginFormAction; ?>">
     <p>
@@ -295,26 +291,25 @@ if (isset($_POST['ID'])) {
       <input type="submit" name="submit" id="submit" value="送出" />
     </p>
   </form>
-</div>
-<p><a href="signup/chose.php">註冊</a></p>
-<div>
-  <h3>需求狀況</h3>
+  </div>
+  <div>
+    <h3>目前需要的物資</h3>
 </div>
 <table width="924" border="1">
   <tr>
     <td width="163">名稱</td>
     <td width="186">數量</td>
     <td width="166">類別</td>
-    <td width="198">狀況</td>
-    <td>日期</td>
+    <td width="198">日期</td>
+  
   </tr>
   <?php do { ?>
   <tr>
     <td><?php echo $row_Recordset2['DS_NAME']; ?></td>
     <td><?php echo $row_Recordset2['DS_AMOUNT']; ?></td>
     <td><?php echo $row_Recordset2['DS_CLASS']; ?></td>
-    <td><?php echo $row_Recordset2['DS_SITUATION']; ?></td>
     <td><?php echo $row_Recordset2['DS_EXPIRED']; ?></td>
+
   </tr>
   <?php } while ($row_Recordset2 = mysql_fetch_assoc($Recordset2)); ?>
 </table>
@@ -323,7 +318,6 @@ if (isset($_POST['ID'])) {
 
 <p>&nbsp;</p>
 </div>
-<div id="apDiv10"></div>
 </div>
 </body>
 </html>
