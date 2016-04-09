@@ -152,7 +152,7 @@ if (isset($_POST['ID'])) {
   $password=$_POST['PWD'];
   $MM_fldUserAuthorization = "D_CHAR";
   $MM_redirectLoginSuccess = "s_manal.php";
-  $MM_redirectLoginFailed = "失敗.php";
+  $MM_redirectLoginFailed = "fa.php";
   $MM_redirecttoReferrer = false;
   mysql_select_db($database_conn, $conn);
   	
