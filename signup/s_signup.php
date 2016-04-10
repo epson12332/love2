@@ -58,18 +58,19 @@ if (isset($_SERVER['QUERY_STRING'])) {
 }
 
 if ((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "form1")) {
-  $insertSQL = sprintf("INSERT INTO member (D_ID, D_PWD, D_NAME, D_TEL, D_EMAIL, D_CHAR) VALUES (%s, %s, %s, %s, %s, %s)",
+  $insertSQL = sprintf("INSERT INTO member (D_ID, D_PWD, D_NAME, D_TEL, D_ADDRESS, D_EMAIL, D_CHAR) VALUES (%s, %s, %s, %s, %s, %s, %s)",
                        GetSQLValueString($_POST['ID'], "text"),
                        GetSQLValueString($_POST['PWD'], "text"),
                        GetSQLValueString($_POST['neme'], "text"),
                        GetSQLValueString($_POST['TEL'], "text"),
+                       GetSQLValueString($_POST['addr'], "text"),
                        GetSQLValueString($_POST['email'], "text"),
                        GetSQLValueString($_POST['hiddenField'], "text"));
 
   mysql_select_db($database_conn, $conn);
   $Result1 = mysql_query($insertSQL, $conn) or die(mysql_error());
 
-  $insertGoTo = "../成功.php";
+  $insertGoTo = "../su.php";
   if (isset($_SERVER['QUERY_STRING'])) {
     $insertGoTo .= (strpos($insertGoTo, '?')) ? "&" : "?";
     $insertGoTo .= $_SERVER['QUERY_STRING'];
@@ -193,6 +194,10 @@ if ((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "form1")) {
       </p>
       <p>email
         <input type="text" name="email" id="email" />
+      </p>
+      <p>
+        <label for="addr">地址：</label>
+        <input type="text" name="addr" id="addr" />
       </p>
       <p>
         <input name="hiddenField" type="hidden" id="hiddenField" value="小天使" />
