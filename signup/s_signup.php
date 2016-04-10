@@ -210,7 +210,7 @@ if ((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "form1")) {
     </form>
 </div>
 
-<div id="apDiv10"><img src="../圖/小主人註冊.png" width="350" height="69" /></div>
+<div id="apDiv10"><img src="../圖/小天使註冊.png" width="350" height="69" /></div>
 </div>
 </body>
 </html>
