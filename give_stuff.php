@@ -77,7 +77,7 @@ function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDe
 }
 
 mysql_select_db($database_conn, $conn);
-$query_stuff = "SELECT `DS_ID`,`DS_NAME`,`DS_AMOUNT`,`DS_CLASS`,`member`.`D_NAME` FROM stuff,member WHERE DS_SITUATION = 'N' and stuff.D_ID = member.D_ID";
+$query_stuff = "SELECT `DS_ID`,`DS_NAME`,`DS_AMOUNT`,`DS_CLASS`,`member`.`D_NAME` FROM stuff,member WHERE DS_SITUATION = 'N' and stuff.D_ID = member.D_ID and member.D_CHAR = '小主人'";
 $stuff = mysql_query($query_stuff, $conn) or die(mysql_error());
 $row_stuff = mysql_fetch_assoc($stuff);
 $totalRows_stuff = mysql_num_rows($stuff);
